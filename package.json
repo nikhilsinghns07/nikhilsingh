@@ -7,7 +7,7 @@
     "start": "NODE_ENV=production",
     "start:dev": "nodemon app.js",
     "start-server": "node app.js",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "author": "NS",
   "license": "ISC",
