@@ -4,7 +4,10 @@
   "description": "backend for blog and portfolio",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "NODE_ENV=production",
+    "start:dev": "nodemon app.js",
+    "start-server": "node app.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
   },
   "author": "NS",
   "license": "ISC",
