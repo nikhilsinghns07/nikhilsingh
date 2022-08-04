@@ -100,7 +100,7 @@ const Download = () => {
                     <br /><br />
                 </div>
             </div>
-            <Footer/>
+            
         </React.Fragment>
     )
 }

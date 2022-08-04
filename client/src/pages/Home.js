@@ -48,8 +48,7 @@ const Home = () => {
                
             </div>
             </div>
-            <Footer/>
-
+           
             </React.Fragment>
     )
 }

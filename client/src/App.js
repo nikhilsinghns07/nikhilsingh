@@ -1,10 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
-import {BrowserRouter,Routes,Route} from "react-router-dom";
+import {BrowserRouter,Routes,Route,Navigate} from "react-router-dom";
 import NavBar from './components/NavBar'
 import Home from './pages/Home'
 import Download from './pages/Download'
 import Projects from './pages/Projects'
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -12,13 +13,11 @@ function App() {
       <NavBar />
       <Routes>
         <Route path='/' element={<Home/>}/>
-      </Routes>
-      <Routes>
         <Route path='/projects' element={<Projects />}/>
-      </Routes> 
-      <Routes>
         <Route path='/download' element={<Download/>}/>
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }

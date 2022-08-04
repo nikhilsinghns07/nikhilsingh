@@ -203,7 +203,7 @@ const Project = () => {
 
             <br/> <br/> <br/>
             </div>
-            <Footer/>
+           
         </React.Fragment>
     )
 }
