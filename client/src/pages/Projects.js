@@ -1,5 +1,6 @@
 import React from "react"
-import '../App.css'
+import Navbar from "../components/NavBar";
+import './pages.css'
 import nsbooksimg  from '../pics/nsbooks.png'
 import Estate from '../pics/Estate.png'
 import todo from '../pics/todo.png'
@@ -17,6 +18,7 @@ const Project = () => {
 
     return(
         <React.Fragment>
+            <Navbar />
             <div style={{ backgroundImage: `url(${background})`}}>
             <section id="projects">
                 <div class="projects container">
@@ -203,7 +205,7 @@ const Project = () => {
 
             <br/> <br/> <br/>
             </div>
-           
+           <Footer />
         </React.Fragment>
     )
 }

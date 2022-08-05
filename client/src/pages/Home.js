@@ -1,17 +1,18 @@
 import React from "react"
-import '../App.css'
+import './pages.css'
 import { FaReact , FaNodeJs , FaHtml5 , FaPython , FaCss3 , FaCheck, FaNpm} from "react-icons/fa"
 import { DiMongodb,DiFirebase,DiHeroku, DiGit, DiGithub, DiAndroid } from "react-icons/di";
 import { SiPostman} from "react-icons/si";
 import Footer from "../components/Footer";
 import background from '../pics/background.jpg'
 import {  Button } from "@mui/material";
-
+import Navbar from "../components/NavBar";
 
 const Home = () => {
 
     return (
         <React.Fragment>
+            <Navbar />
             <div style={{ backgroundImage: `url(${background})`}}>
 
             <div class="home">
@@ -48,7 +49,7 @@ const Home = () => {
                
             </div>
             </div>
-           
+           <Footer />
             </React.Fragment>
     )
 }

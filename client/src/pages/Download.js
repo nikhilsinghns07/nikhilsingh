@@ -8,12 +8,13 @@ import gym1 from '../pics/gym1.jpg'
 import News from '../pics/News.png'
 import background from '../pics/background.jpg'
 import blog from '../pics/blog.png'
-
-import '../App.css'
+import Navbar from "../components/NavBar";
+import './pages.css'
 
 const Download = () => {
     return(
         <React.Fragment>
+            <Navbar />
             <div style={{ backgroundImage: `url(${background})`}}>
                 <div style={{display:'flex',flexDirection:'column',alignItems:'center'}}>
                 <br /><br />
@@ -100,7 +101,7 @@ const Download = () => {
                     <br /><br />
                 </div>
             </div>
-            
+            <Footer />
         </React.Fragment>
     )
 }
