@@ -1,32 +1,11 @@
 import * as React from 'react';
-import {CssBaseline,Box,Typography,Link,styled,Paper} from '@mui/material'
+import {CssBaseline,Box} from '@mui/material'
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import classes from './blog.module.css'
 import { ExternalLink } from 'react-external-link';
 import { MDBContainer, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-kit';
 import Logo from '../../pics/logoblack.png'
-
-
-const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-}));
-
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="text.secondary">
-      {'Copyright © '}
-      <Link color="inherit" href="https://nikhilsingh07.herokuapp.com">NS</Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
 
 export default function BlogFooter() {
   return (
@@ -50,7 +29,7 @@ export default function BlogFooter() {
                     <MDBRow >
                         <MDBCol>
                         <h6 > <MDBIcon icon="gem" className="me-3" /> Nikhil Singh </h6>
-                        <img src={Logo} height='50%' width='18%'  />
+                        <img src={Logo} height='50%' width='18%'  alt='Logo'/>
                         </MDBCol>
 
                         
