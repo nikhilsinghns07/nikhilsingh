@@ -8,6 +8,7 @@ export default function AccountMenu() {
  
   const logoutHandler = () => {
     window.localStorage.removeItem("loginToken")
+    window.localStorage.removeItem("username")
     window.location.reload()
   }
   
@@ -77,7 +78,7 @@ export default function AccountMenu() {
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
         <MenuItem>
-        <NavLink to='/userpost'>My Posts</NavLink>
+        <Button><NavLink to='/userPost'> My Posts </NavLink></Button>
         </MenuItem>
         <MenuItem>
         <Button onClick={() => {logoutHandler()}}>Logout</Button>
