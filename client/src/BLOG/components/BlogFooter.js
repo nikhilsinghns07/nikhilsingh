@@ -1,60 +1,73 @@
 import * as React from 'react';
-import {CssBaseline,Box} from '@mui/material'
-import GitHubIcon from '@mui/icons-material/GitHub';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import classes from './blog.module.css'
-import { ExternalLink } from 'react-external-link';
-import { MDBContainer, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-kit';
-import Logo from '../../pics/logoblack.png'
+import { CDBFooter, CDBFooterLink, CDBBtn, CDBIcon,CDBBox } from 'cdbreact';
+import { NavLink } from '../../components/NavbarElements';
+import logo from '../../pics/logoblack.png'
+
 
 export default function BlogFooter() {
   return (
-    <>
+    <React.Fragment>
+        <CDBFooter className="shadow">
 
-    <div className={classes.container}>
-        <CssBaseline />
-        <Box component="footer" sx={{py: 3,px: 2,mt: 'auto', backgroundColor:'orangered'}}>
-            <section className='d-flex justify-content-center justify-content-lg-between p-4 border-bottom'>
-                <div className='me-5 d-none d-lg-block'>
-                    <span>Get connected :</span>
-                </div>
+            <CDBBox display="flex" flex="column" className=" mx-auto py-4" style={{ width: '80%' }}>
 
-                <div>
-                    <ExternalLink className='me-4 text-reset' href="https://www.linkedin.com/nikhilsinghns07"> <LinkedInIcon/> </ExternalLink>
-                    <ExternalLink className='me-4 text-reset' href="https://www.github.com/nikhilsinghns07"> <GitHubIcon /> </ExternalLink>
-                </div>
-            </section>
-            <section className=''>
-                <MDBContainer >
-                    <MDBRow >
-                        <MDBCol>
-                        <h6 > <MDBIcon icon="gem" className="me-3" /> Nikhil Singh </h6>
-                        <img src={Logo} height='50%' width='18%'  alt='Logo'/>
-                        </MDBCol>
+                <CDBBox display="flex" justifyContent="between" className="flex-wrap">
 
+                    <CDBBox>
+                        <NavLink to="/" className="d-flex align-items-center p-0 text-dark">
+                        <img alt="logo" src={logo} width="60px" height="60px" />
+                        <span className="ml-3 h5 font-weight-bold">NS</span>
+                        </NavLink>
+                    </CDBBox>
+                    
+                    <CDBBox display="flex" style={{ width: '60%' }} justifyContent="around">
+
+                        <CDBBox>
+                            <p className="h5 mb-3" style={{ fontWeight: '600' }}>Pages</p>
+                            <CDBBox flex="column" display="flex" style={{ cursor: 'pointer', padding: '0' }}>
+                                <NavLink to="/"> <CDBFooterLink >Home</CDBFooterLink> </NavLink>
+                                <NavLink to="/contact"> <CDBFooterLink >Contact</CDBFooterLink> </NavLink>
+                                <NavLink to="/blog"> <CDBFooterLink >Blog</CDBFooterLink> </NavLink>
+                                <NavLink to="/projects"> <CDBFooterLink >Projects</CDBFooterLink> </NavLink>
+                            </CDBBox>
+                        </CDBBox>
+
+                        <CDBBox>
+                            <p className="h5 mb-3" style={{ fontWeight: '600' }}> Download </p>
+                            <CDBBox display="flex" flex="column" style={{ cursor: 'pointer', padding: '0' }}>
+                                <CDBBtn flat  className="p-2"  href="https://api-nikhilsingh7.herokuapp.com/cv">CV</CDBBtn> 
+                                <NavLink to="/"> <CDBFooterLink >Blog </CDBFooterLink> </NavLink>
+                                <NavLink to="/"> <CDBFooterLink >Weather</CDBFooterLink> </NavLink>
+                                <NavLink to="/"> <CDBFooterLink >Download </CDBFooterLink> </NavLink>
+                            </CDBBox>
+                        </CDBBox>
+
+                    </CDBBox>
+
+                </CDBBox>
+
+                <CDBBox display="flex" className="mt-4" justifyContent="between">
+                    <small className="ml-2">&copy; Nikhil Singh, 2022. All rights reserved.</small>
+                    <CDBBox display="flex">
+
+                        <CDBBtn flat color="dark" className="p-2" href='https://www.linkedin.com/in/nikhilsinghns07'>
+                            <CDBIcon fab icon="linkedin" /> 
+                        </CDBBtn>
+                        <CDBBtn flat color="dark" className="mx-3 p-2" href="https://www.github.com/nikhilsinghns07">
+                            <CDBIcon fab icon="github" /> 
+                        </CDBBtn>
                         
-                        <MDBCol md="3" lg="2" xl="2" className='mx-auto mb-4'>
-                        <h6 className='text-uppercase fw-bold mb-4'>Useful links</h6>
-                        <p> <a href='#!' className='text-reset'> Blog </a> </p>
-                        <p> <a href='#!' className='text-reset'> Download </a> </p>
-                        
-                        </MDBCol>
+                    </CDBBox>
 
-                        <MDBCol md="4" lg="3" xl="3" className='mx-auto mb-md-0 mb-4'>
-                        <h6 className='text-uppercase fw-bold mb-4'>Contact</h6>
-                        <p> <MDBIcon icon="envelope" className="me-3" /> nikhilsinghns01@gmail.com</p>
-                        </MDBCol>
-                        
-                    </MDBRow>
-                </MDBContainer>
-            </section>
+                </CDBBox>
 
-            <div className='text-center p-4' style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}>
-                © 2022 Copyright:
-                <a className='text-reset fw-bold' href='https://nikhilsingh07.herokuapp.com'> nikhilsingh07</a>
-            </div>
-        </Box>        
-    </div>
-    </>
+            </CDBBox>
+    </CDBFooter>
+    </React.Fragment>
   );
 }
+
+
+
+
+

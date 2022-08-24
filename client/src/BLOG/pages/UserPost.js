@@ -70,65 +70,68 @@ const UserPost = () => {
     },[])
 
     return (
-        <div style={{ backgroundImage: `url(${background})`}}>
-            <Navbar bg="light" variant="light">
-                <Container>
-                <Navbar.Brand> 
-                    <NavLink to='/'>
-                        <Image src={logo} height='75' width='75'/>
-                    </NavLink>
-                </Navbar.Brand>
-                    <div className={classes.navcontainer}>
-                    <Nav className="me-auto" >
-                        <Button variant="outlined" ><NavLink to='/blog'>Home</NavLink></Button>
-                        {isLoggedIn === true ? <AccountMenu/> : <Button  variant="outlined"><NavLink to='/login'>Login</NavLink></Button>} 
-                    </Nav>
-                    </div>
-                </Container>
-            </Navbar>
-
-            { loading === true ? 
-            <Box style={{textAlign:'center',padding:2}}>
-                <CircularProgress /> 
-                <p>Loading</p>
-            </Box> : null 
-            }
-
-   
-
-            {   
-                (userpost?.length > 0 ?
-            
-                    (userpost.map((post,idx) => 
-                        <div style={{display:'flex',flexDirection:'row',justifyContent:'space-around',padding:10,}}>
-                            <Card sx={{ width:'100%' }}  key={idx}>
-                                <CardMedia component="img" height="200" image={post?.imageUrl || 'https://source.unsplash.com/random'} alt="Post Image"/>
-                                <CardContent>
-                                    <Typography gutterBottom variant="h5" component="div">
-                                    {post.title}
-                                    </Typography>
-                                    <Typography variant="body2" color="text.secondary">
-                                    {post.content}
-                                    </Typography>
-                                </CardContent>
-                                <CardActions>
-                                    <Button size="small" onClick={() => {editPostHandler(post._id)}}>Edit</Button>
-                                    <Button size="small" onClick={() => {deletePostHandler(post._id)}}>Delete</Button>
-                                </CardActions>
-                            </Card>
+        <React.Fragment>
+            <div style={{ backgroundImage: `url(${background})`}}>
+                <Navbar bg="light" variant="light">
+                    <Container>
+                    <Navbar.Brand> 
+                        <NavLink to='/'>
+                            <Image src={logo} height='75' width='75'/>
+                        </NavLink>
+                    </Navbar.Brand>
+                        <div className={classes.navcontainer}>
+                        <Nav className="me-auto" >
+                            <Button variant="outlined" ><NavLink to='/blog'>Home</NavLink></Button>
+                            {isLoggedIn === true ? <AccountMenu/> : <Button  variant="outlined"><NavLink to='/login'>Login</NavLink></Button>} 
+                        </Nav>
                         </div>
-                    ))
-                    : 
-                    (
-                        <div style={{textAlign:'center',padding:'2rem'}}>
-                            <h2 > No Posts Found</h2>
-                            <Button variant="outlined" ><NavLink to='/createPost'> Create a Post </NavLink></Button>
-                        </div> 
-                    )
-                )  
-            }
+                    </Container>
+                </Navbar>
+
+                { loading === true ? 
+                <Box style={{textAlign:'center',padding:2}}>
+                    <CircularProgress /> 
+                    <p>Loading</p>
+                </Box> : null 
+                }
+
+    
+
+                {   
+                    (userpost?.length > 0 ?
+                
+                        (userpost.map((post,idx) => 
+                            <div style={{display:'flex',flexDirection:'row',justifyContent:'space-around',padding:10,}}>
+                                <Card sx={{ width:'100%' }}  key={idx}>
+                                    <CardMedia component="img" height="200" image={post?.imageUrl || 'https://source.unsplash.com/random'} alt="Post Image"/>
+                                    <CardContent>
+                                        <Typography gutterBottom variant="h5" component="div">
+                                        {post.title}
+                                        </Typography>
+                                        <Typography variant="body2" color="text.secondary">
+                                        {post.content}
+                                        </Typography>
+                                    </CardContent>
+                                    <CardActions>
+                                        <Button size="small" onClick={() => {editPostHandler(post._id)}}>Edit</Button>
+                                        <Button size="small" onClick={() => {deletePostHandler(post._id)}}>Delete</Button>
+                                    </CardActions>
+                                </Card>
+                            </div>
+                        ))
+                        : 
+                        (
+                            <div style={{textAlign:'center',padding:'2rem'}}>
+                                <h2 > No Posts Found</h2>
+                                <Button variant="outlined" ><NavLink to='/createPost'> Create a Post </NavLink></Button>
+                            </div> 
+                        )
+                    )  
+                }
+                
+            </div>
             <BlogFooter />
-        </div>
+        </React.Fragment>
   );
 }
 

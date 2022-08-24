@@ -101,9 +101,8 @@ const Blog = () => {
           </div>
         )
         }
-        <BlogFooter />
         </div>
-        
+        <BlogFooter />
         </React.Fragment>
   );
 }

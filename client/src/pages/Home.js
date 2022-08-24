@@ -26,7 +26,7 @@ const Home = () => {
                 With 2 years of experience in programming i believe in <span class='color'> "Learn & Implement"</span>. 
                 I am  highly enthusiastic, delivery focused and always motivated in taking up challenges and solving them technically.<br/>
                 <p clas='p-about'>I am an undergrad in <span class='color'>Computer Application.</span> 
-                <Button href="https://blogbackend7.herokuapp.com/cv">Download Resume</Button>
+                <Button href="https://api-nikhilsingh7.herokuapp.com/cv">Download Resume</Button>
                 </p> 
             </div>
 

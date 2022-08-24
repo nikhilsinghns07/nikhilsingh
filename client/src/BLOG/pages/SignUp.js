@@ -5,7 +5,9 @@ import { useNavigate } from 'react-router-dom';
 import BlogFooter from '../components/BlogFooter';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-
+import {Nav,Container,Navbar,Image} from 'react-bootstrap'
+import logo from '../../pics/logoblack.png'
+import classes from '../components/blog.module.css'
 
 const Signup = () => {
     const theme = createTheme();
@@ -51,6 +53,21 @@ const Signup = () => {
     
     return (
         <React.Fragment>
+            <Navbar bg="light" variant="light">
+                    <Container>
+                    <Navbar.Brand> 
+                        <NavLink to='/'>
+                            <Image src={logo} height='75' width='75'/>
+                        </NavLink>
+                    </Navbar.Brand>
+                        <div className={classes.navcontainer}>
+                        <Nav className="me-auto" >
+                            <Button variant="outlined" ><NavLink to='/blog'>Home</NavLink></Button>
+                            
+                        </Nav>
+                        </div>
+                    </Container>
+                </Navbar>
           
             <ThemeProvider theme={theme}>
                 <Grid container component="main" sx={{ height: '100vh' }}>

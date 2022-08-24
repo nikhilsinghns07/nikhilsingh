@@ -24,7 +24,6 @@ function App() {
         <Route path = '/userPost' element={<UserPost />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
-      
     </BrowserRouter>
   );
 }
