@@ -1,5 +1,5 @@
 import React ,{useState,useEffect}  from 'react'
-import {Card,CardHeader,CardMedia,CardContent,CardActions,Avatar,Typography,CircularProgress,Box} from '@mui/material'
+import {Card,CardHeader,CardMedia,CardContent,CardActions,Avatar,Typography,CircularProgress,Box,CardActionArea} from '@mui/material'
 import { red } from '@mui/material/colors';
 import {Nav,Container,Navbar,Image} from 'react-bootstrap'
 import {Button} from '@mui/material'
@@ -82,22 +82,23 @@ const Blog = () => {
               padding:10,
             }}>
               <Card sx={{ width:'100%' }} key={idx} >
-              <CardHeader 
-                avatar={
-                  <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">R</Avatar>
-                } 
-                title={post.title} 
-                subheader={post.author}
-              />
-              <CardMedia component="img" height="194" image={post?.imageUrl || 'https://source.unsplash.com/random'} alt="Post IMG"/>
-              <CardContent>
-                <Typography variant="body2" color="text.secondary">{post.content}</Typography>
-              </CardContent>
-              <CardActions disableSpacing>
-                <Typography variant="body2" color="text.secondary">{new Date(post.date).toDateString()}</Typography>
-              
-              </CardActions>
-            </Card>
+                <CardActionArea >
+                  <CardHeader 
+                    avatar={
+                      <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">R</Avatar>
+                    } 
+                    title={post.title} 
+                    subheader={post.author}
+                  />
+                  <CardMedia component="img" height="194" image={post?.imageUrl || 'https://source.unsplash.com/random'} alt="Post IMG"/>
+                  <CardContent>
+                    <Typography variant="body5" color="text.secondary">{post.content}</Typography>
+                  </CardContent>
+                  <CardActions disableSpacing>
+                    <Typography variant="body2" color="text.secondary">{new Date(post.date).toDateString()}</Typography>
+                  </CardActions>   
+                </CardActionArea>
+              </Card>
           </div>
         )
         }

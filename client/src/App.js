@@ -8,6 +8,8 @@ import Signup from "./BLOG/pages/SignUp";
 import CreatePost from './BLOG/pages/CreatePost'
 import EditPost from './BLOG/pages/EditPost'
 import UserPost from './BLOG/pages/UserPost'
+import ForgotPassword from "./BLOG/pages/ForgotPassword";
+import ResetPassword from "./BLOG/pages/ResetPassword";
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
         <Route path = '/createPost' element={<CreatePost />} />
         <Route path = '/editPost' element={<EditPost />} />
         <Route path = '/userPost' element={<UserPost />} />
+        <Route path="/resetPassword" element = {<ForgotPassword/>} />
+        <Route path="/newPassword" element = {<ResetPassword/>} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>

@@ -100,9 +100,7 @@ const Login = () => {
                             <Button fullWidth variant="contained"sx={{ mt: 3, mb: 2 }} onClick={() => {loginHandler()}}>Login</Button>
                             <Grid container>
                                 <Grid item xs>
-                                <Link href="#" variant="body2">
-                                    Forgot password?
-                                </Link>
+                                <NavLink to='/resetPassword'>{"Forgot Password ?"}</NavLink>
                                 </Grid>
                                 <Grid item>
                                 <NavLink to='/signup'>{"Don't have an account? Sign Up"}</NavLink>
