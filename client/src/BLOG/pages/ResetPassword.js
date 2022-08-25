@@ -12,10 +12,14 @@ import classes from '../components/blog.module.css'
 
 const ResetPassword = () => {
     const theme = createTheme();
-    const [email,setEmail] = useState('')
+    const [otp,setOtp] = useState('')
 
     const [isLoading,setIsLoading] = useState(false)
     const [errorMessage,setErrorMessage] = useState(null)
+
+    const otpValidator = () => {
+        
+    }
 
     return (
         <React.Fragment>
@@ -65,8 +69,10 @@ const ResetPassword = () => {
                                 <div style={{display:'flex',flexDirection:'row',justifyContent:'center',padding:10}}>
                                     {errorMessage ?  <Alert severity="error">{errorMessage}</Alert>: null}
                                 </div>
-                                <TextField margin="normal" required fullWidth label="Email" autoComplete="email"  value={email} onChange={(e) => setEmail(e.target.value)} autoFocus/>
-                                <Button fullWidth variant="contained"sx={{ mt: 3, mb: 2 }} > Reset Password </Button>
+
+
+                                <TextField margin="normal" required fullWidth label="OTP"   value={otp} onChange={(e) => setOtp(e.target.value)} autoFocus/>
+                                <Button fullWidth variant="contained"sx={{ mt: 3, mb: 2 }} > Validate</Button>
                                 
                             </Box>
 

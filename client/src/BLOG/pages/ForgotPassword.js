@@ -1,5 +1,5 @@
 import React ,{ useState } from 'react'
-import {TextField,CircularProgress,Alert,Button,Grid,CssBaseline,Paper,Box,Avatar,Typography} from "@mui/material"
+import {TextField,CircularProgress,Alert,AlertTitle,Button,Grid,CssBaseline,Paper,Box,Avatar,Typography} from "@mui/material"
 import {NavLink} from '../../components/NavbarElements'
 import { useNavigate } from 'react-router-dom';
 import BlogFooter from '../components/BlogFooter';
@@ -16,10 +16,9 @@ const ForgotPassword = () => {
 
     const [isLoading,setIsLoading] = useState(false)
     const [errorMessage,setErrorMessage] = useState(null)
+    const [sucess,setSucess] = useState(false)
     
     let navigate = useNavigate()
-
-    const token = Math.floor(Math.random() * 9999)
 
     const resetPasswordHandler = () => {
         setIsLoading(true)
@@ -28,22 +27,27 @@ const ForgotPassword = () => {
             headers : {
                 "Content-Type" : "application/json"
             },
-            body:JSON.stringify({
-                "email" : email,
-                "token" : token
-            })
+            body:JSON.stringify({"email" : email})
         })
         .then(response => {
             if(response.status === 200) {
                 setIsLoading(false)
-                navigate('/newPassword')
-            } 
+                setSucess(true)
+                setEmail('')
+            }
+
+            if(response.status === 502) {
+                setIsLoading(false)
+                setSucess(false)
+                setErrorMessage('Email Not associated with any account.')
+                setEmail('')
+            }
             
         })
-        .catch(err => {
-            console.log(err)
-            setErrorMessage(err)
-        })
+
+        setTimeout(function () {
+            navigate('/login')
+        },12000)
     }
 
     return (
@@ -58,7 +62,6 @@ const ForgotPassword = () => {
                         <div className={classes.navcontainer}>
                         <Nav className="me-auto" >
                             <Button variant="outlined" ><NavLink to='/blog'>Home</NavLink></Button>
-                            
                         </Nav>
                         </div>
                     </Container>
@@ -93,6 +96,13 @@ const ForgotPassword = () => {
                                 <div style={{display:'flex',flexDirection:'row',justifyContent:'center',padding:10}}>
                                     {errorMessage ?  <Alert severity="error">{errorMessage}</Alert>: null}
                                 </div>
+                                {sucess ? 
+                                    <Alert severity="success">
+                                        <AlertTitle>Email Sent</AlertTitle>
+                                        <strong>Check your inbox!</strong>
+                                    </Alert> 
+                                    : null
+                                }
                                 <TextField margin="normal" required fullWidth label="Email" autoComplete="email"  value={email} onChange={(e) => setEmail(e.target.value)} autoFocus/>
                                 <Button fullWidth variant="contained"sx={{ mt: 3, mb: 2 }} onClick ={() => {resetPasswordHandler()}}> Reset Password </Button>
                                 
