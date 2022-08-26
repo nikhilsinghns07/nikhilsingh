@@ -1,6 +1,7 @@
 import React ,{ useState } from 'react'
-import {TextField,CircularProgress,Alert,Button,Grid,CssBaseline,Paper,Box,Avatar,Typography} from "@mui/material"
+import {TextField,CircularProgress,Alert,AlertTitle,Button,Grid,CssBaseline,Paper,Box,Avatar,Typography} from "@mui/material"
 import {NavLink} from '../../components/NavbarElements'
+import {useParams} from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
 import BlogFooter from '../components/BlogFooter';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -12,13 +13,30 @@ import classes from '../components/blog.module.css'
 
 const ResetPassword = () => {
     const theme = createTheme();
-    const [otp,setOtp] = useState('')
+    const [newPassword,setNewPassword] = useState('')
+    const [confirmNewPassword,setConfirmNewPassword] = useState('')
 
     const [isLoading,setIsLoading] = useState(false)
     const [errorMessage,setErrorMessage] = useState(null)
+    const [sucess,setSucess] = useState(false)
+    
+    const token = useParams()
+    console.log(token)
+    const createPasswordHandler = () => {
 
-    const otpValidator = () => {
-        
+        setIsLoading(true)
+        if(newPassword !== confirmNewPassword) {
+            setErrorMessage("Passwords Should Match")
+            setIsLoading(false)
+            return
+        }
+
+        setSucess(true)
+        setIsLoading(false)
+        setErrorMessage(null)
+        setNewPassword('')
+        setConfirmNewPassword('')
+
     }
 
     return (
@@ -61,8 +79,15 @@ const ResetPassword = () => {
                             <div style={{flexDirection:'column',textAlign:'center',padding:10}}>
                                 {isLoading ? <CircularProgress /> : null}
                             </div>
+                            {sucess ? 
+                                    <Alert severity="success">
+                                        <AlertTitle>Password Changed</AlertTitle>
+                                        <strong>You will be redirected to Login Page</strong>
+                                    </Alert> 
+                                    : null
+                                }
 
-                            <Typography component="h1" variant="h5"> Submit OTP that has been sent to your registered email address. </Typography>
+                            <Typography component="h1" variant="h5"> Enter New Password </Typography>
                             
                             <Box >
 
@@ -71,8 +96,10 @@ const ResetPassword = () => {
                                 </div>
 
 
-                                <TextField margin="normal" required fullWidth label="OTP"   value={otp} onChange={(e) => setOtp(e.target.value)} autoFocus/>
-                                <Button fullWidth variant="contained"sx={{ mt: 3, mb: 2 }} > Validate</Button>
+                                <TextField margin="normal" required fullWidth label="New Password"   value={newPassword} onChange={(e) => setNewPassword(e.target.value)} autoFocus/>
+                                <TextField margin="normal" required fullWidth label="Confirm New Password"   value={confirmNewPassword} onChange={(e) => setConfirmNewPassword(e.target.value)} autoFocus/>
+
+                                <Button fullWidth variant="contained"sx={{ mt: 3, mb: 2 }} onClick={() => {createPasswordHandler()}}> Validate</Button>
                                 
                             </Box>
 
