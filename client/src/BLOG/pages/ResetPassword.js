@@ -19,43 +19,79 @@ const ResetPassword = () => {
     const [isLoading,setIsLoading] = useState(false)
     const [errorMessage,setErrorMessage] = useState(null)
     const [sucess,setSucess] = useState(false)
-    
-    const token = useParams()
-    console.log(token)
+    const navigate = useNavigate()
+    const params = useParams()
+    const token = params.token
+    const id = params.id
+
+        
     const createPasswordHandler = () => {
+        console.log(token)
+        console.log(id)
+
+        
+        
 
         setIsLoading(true)
+
         if(newPassword !== confirmNewPassword) {
             setErrorMessage("Passwords Should Match")
             setIsLoading(false)
             return
         }
 
-        setSucess(true)
-        setIsLoading(false)
-        setErrorMessage(null)
-        setNewPassword('')
-        setConfirmNewPassword('')
+        
 
+        fetch('https://api-nikhilsingh7.herokuapp.com/updatePassword',{
+            method : "POST",
+            headers : {
+                "Content-Type" : "application/json"
+            },
+            body:JSON.stringify({
+                "newPassword" : newPassword,
+                "userId" : id,
+                "token" : token
+            })
+        })
+        .then(response => {
+            if (response.status === 200) {
+                setSucess(true)
+                setIsLoading(false)
+                setErrorMessage(null)
+                setNewPassword('')
+                setConfirmNewPassword('')
+                setTimeout(function () {
+                    navigate('/login')
+                },12000)
+            }
+
+            if (response.status === 502) {
+                setSucess(false)
+                setIsLoading(false)
+                setErrorMessage("Expired Or Invalid")
+                setNewPassword('')
+                setConfirmNewPassword('')
+            }
+
+        })
     }
 
     return (
         <React.Fragment>
             <Navbar bg="light" variant="light">
-                    <Container>
+                <Container>
                     <Navbar.Brand> 
                         <NavLink to='/'>
                             <Image src={logo} height='75' width='75'/>
                         </NavLink>
                     </Navbar.Brand>
-                        <div className={classes.navcontainer}>
+                    <div className={classes.navcontainer}>
                         <Nav className="me-auto" >
-                            <Button variant="outlined" ><NavLink to='/blog'>Home</NavLink></Button>
-                            
+                            <Button variant="outlined" ><NavLink to='/blog'>Home</NavLink></Button>    
                         </Nav>
                         </div>
-                    </Container>
-                </Navbar>
+                </Container>
+            </Navbar>
           
             <ThemeProvider theme={theme}>
                 <Grid container component="main" sx={{ height: '100vh' }}>
@@ -96,7 +132,7 @@ const ResetPassword = () => {
                                 </div>
 
 
-                                <TextField margin="normal" required fullWidth label="New Password"   value={newPassword} onChange={(e) => setNewPassword(e.target.value)} autoFocus/>
+                                <TextField margin="normal" required fullWidth label="New Password" type="password"  value={newPassword} onChange={(e) => setNewPassword(e.target.value)} autoFocus/>
                                 <TextField margin="normal" required fullWidth label="Confirm New Password"   value={confirmNewPassword} onChange={(e) => setConfirmNewPassword(e.target.value)} autoFocus/>
 
                                 <Button fullWidth variant="contained"sx={{ mt: 3, mb: 2 }} onClick={() => {createPasswordHandler()}}> Validate</Button>

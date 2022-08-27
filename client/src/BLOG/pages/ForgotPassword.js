@@ -34,6 +34,9 @@ const ForgotPassword = () => {
                 setIsLoading(false)
                 setSucess(true)
                 setEmail('')
+                setTimeout(function () {
+                    navigate('/login')
+                },12000)
             }
 
             if(response.status === 502) {
@@ -45,9 +48,7 @@ const ForgotPassword = () => {
             
         })
 
-        setTimeout(function () {
-            navigate('/login')
-        },12000)
+
     }
 
     return (
