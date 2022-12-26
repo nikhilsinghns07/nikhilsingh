@@ -1,13 +1,10 @@
 import * as React from 'react';
-import { CDBFooter, CDBFooterLink, CDBBtn, CDBIcon,CDBBox } from 'cdbreact';
-import { NavLink } from '../../components/NavbarElements';
-import logo from '../../pics/logoblack.png'
 
 
 export default function BlogFooter() {
   return (
     <React.Fragment>
-        <CDBFooter className="shadow">
+        {/* <CDBFooter className="shadow">
 
             <CDBBox display="flex" flex="column" className=" mx-auto py-4" style={{ width: '80%' }}>
 
@@ -62,7 +59,7 @@ export default function BlogFooter() {
                 </CDBBox>
 
             </CDBBox>
-    </CDBFooter>
+    </CDBFooter> */}
     </React.Fragment>
   );
 }

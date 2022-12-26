@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css?family=Varela+Round');
+
+/* Footer Code */
+.footer{
+  width: 100%;
+  height: auto;
+  padding: 0 10%;
+  background-color:firebrick;
+}
+
+.container{
+  display: flex;
+  flex-direction: row;
+}
+
+.error{
+  font-weight: bolder;
+  color: white;
+}
+.form {
+  color: aliceblue;
+}
+
+.intro{
+  color: white;
+  font-size: larger;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+.icons{
+  color:white;
+  font-size: larger;
+}
+
+.control {
+  margin-bottom: 0.5rem;
+}
+
+.control label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.control input,
+.control textarea {
+  font: inherit;
+  padding: 0.35rem;
+  border-radius: 4px;
+  background-color: #f0f0f0;
+  border: 1px solid #c1d1d1;
+  display: block;
+  width: 100%;
+  font-size: 1.25rem;
+}
+
+.control input:focus,
+.control textarea:focus {
+  background-color: #cbf8f8;
+  outline-color: teal;
+}
+
+.btn{
+  box-sizing:content-box;
+  background-color: orange;
+}
+
+  
+@media only screen and (max-width: 480px) {
+  .footer{
+    width:100%;
+    height: auto;
+    padding: 0 10%;
+  }
+
+  .container{
+    display: flex;
+    flex-direction: column;
+  }
+}
