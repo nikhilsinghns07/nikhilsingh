@@ -42,7 +42,7 @@ const ResetPassword = () => {
 
         
 
-        fetch('https://api-nikhilsingh7.herokuapp.com/updatePassword',{
+        fetch('https://apinikhilsingh7.onrender.com/updatePassword',{
             method : "POST",
             headers : {
                 "Content-Type" : "application/json"

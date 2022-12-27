@@ -22,7 +22,7 @@ const UserPost = () => {
     
     const fetchUserPost = () => {
         setLoading(true)
-        fetch('https://api-nikhilsingh7.herokuapp.com/userpost',{
+        fetch('https://apinikhilsingh7.onrender.com/userpost',{
             method:"POST",
             headers: {
                 "Content-Type" : "application/json"
@@ -45,7 +45,7 @@ const UserPost = () => {
     }
 
     const deletePostHandler = (id) => {
-        fetch('https://api-nikhilsingh7.herokuapp.com/deletepost',{
+        fetch('https://apinikhilsingh7.onrender.com/deletepost',{
             method : "POST",
             headers: {
                 "Content-Type" : "application/json"

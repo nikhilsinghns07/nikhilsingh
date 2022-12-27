@@ -26,8 +26,8 @@ const CreatePost = () => {
 
         }
         setIsLoading(true)
-
-        fetch('https://api-nikhilsingh7.herokuapp.com/createpost',{
+        
+        fetch('https://apinikhilsingh7.onrender.com/createpost',{
             method:"POST",
             headers : {
                 "Content-Type" : "application/json"

@@ -48,7 +48,7 @@ const Project = () => {
                                     This is a SPA demo of Real Estate Website built using React and For email integration Express and SendGrid-mail-transport has 
                                     been used.
                                 </p>
-                                <ExternalLink href='https://nsgroup.herokuapp.com/'> Real Esatate </ExternalLink>
+                                <ExternalLink href='https://nsgrouprealestate.vercel.app/'> Real Esatate </ExternalLink>
                             </div>
                             <div class='project-img'>
                                 <img src={Estate} alt='Real Estate'/>

@@ -31,7 +31,7 @@ const Blog = () => {
 
   const fetchData = () => {
     setLoading(true)
-    fetch('https://api-nikhilsingh7.herokuapp.com/getPost')
+    fetch('https://apinikhilsingh7.onrender.com/getPost')
     .then((res) => res.json())
     .then(data => {
       setPosts(data.posts)

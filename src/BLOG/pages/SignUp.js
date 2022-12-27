@@ -27,7 +27,7 @@ const Signup = () => {
         }
 
         setIsLoading(true)
-        fetch("https://api-nikhilsingh7.herokuapp.com/signup",{
+        fetch("https://apinikhilsingh7.onrender.com/signup",{
             method : "POST",
             headers: {
                 "Content-Type" : "application/json"

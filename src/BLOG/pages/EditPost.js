@@ -21,7 +21,7 @@ const EditPost = () => {
 
 
     const previousPostHandler = () => {
-        fetch("https://api-nikhilsingh7.herokuapp.com/getPostbyId",{
+        fetch("https://apinikhilsingh7.onrender.com/getPostbyId",{
             method : "POST",
             headers: {
                 "Content-Type" : "application/json"

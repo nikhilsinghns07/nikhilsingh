@@ -22,7 +22,7 @@ const ForgotPassword = () => {
 
     const resetPasswordHandler = () => {
         setIsLoading(true)
-        fetch("https://api-nikhilsingh7.herokuapp.com/resetpassword",{
+        fetch("https://apinikhilsingh7.onrender.com/resetpassword",{
             method : "POST",
             headers : {
                 "Content-Type" : "application/json"

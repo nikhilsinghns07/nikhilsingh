@@ -1,7 +1,7 @@
 import * as React from 'react';
 // import { CDBFooter, CDBFooterLink, CDBBtn, CDBIcon,CDBBox } from 'cdbreact';
-import { NavLink } from '../../components/NavbarElements';
-import logo from '../../pics/logoblack.png'
+// import { NavLink } from '../../components/NavbarElements';
+// import logo from '../../pics/logoblack.png'
 
 
 export default function BlogFooter() {
